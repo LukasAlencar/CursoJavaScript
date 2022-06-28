@@ -1,1 +1,2 @@
-console.log('Hello world do Script.js');
+let idade = prompt('Qual a sua idade?');
+
