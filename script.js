@@ -1,6 +1,6 @@
-let numeroAleatorio = function(){
-    console.log(Math.random());
-}
+let idade = 18;
 
-numeroAleatorio();
-numeroAleatorio();
+function test(idade){
+    if(idade >= 18)
+
+}
