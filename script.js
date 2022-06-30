@@ -1,6 +1,10 @@
-let idade = 18;
 
-function test(idade){
-    if(idade >= 18)
-
+const test = (num) => {
+    for(i = num; i > 0; i--) {
+        if(i % 2 == 0) {
+            console.log(i);
+        }
+    }
 }
+
+test(50);
