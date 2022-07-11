@@ -1,21 +1,26 @@
-class Item{
-    constructor(nome, desc, valor){
-        this.nome = nome;
-        this.desc = desc;
-        this.valor = valor;
-    }
-}
 
 class CarrinhosCompras {
     constructor(itens, qtdTotal, vTotal){
-        this.itens = [...itens];
+        this.itens = itens;
         this.qtdTotal = qtdTotal;
         this.vTotal = vTotal;
     }
-    adicionarItem(item = new Item(nome, desc, valor)){
-        this.itens.push(item);
-        this.qtdTotal += 1;
-        this.vTotal += item.valor;
+    adicionarItem(item){
+        let verificarExistencia = 0;
+        for(let itemCarrinho in this.itens){
+            if(this.itens[itemCarrinho].id == item.id){
+                this.itens[itemCarrinho].qtdTotal += item.qtdTotal;
+                verificarExistencia = 1;
+            }
+
+            if(verificarExistencia == 0){
+                this.itens.push(item);
+            }
+
+            this.qtdTotal += item.qtdTotal;
+            this.vTotal += item.valor * item.qtd;
+
+        }
     } 
     removerItem(item){
         
@@ -25,11 +30,15 @@ class CarrinhosCompras {
 
 let carrinho1 = new CarrinhosCompras([
     {
-        nome: 'Miojo',
-        desc: '3min',
+        id: 1,
+        nome: 'Macarrão',
         valor: 3
     }
 ], 1, 3);
-carrinho1.adicionarItem('Macarrão', 'Macarrão instataneo', 10);
+
+
+carrinho1.adicionarItem(1, 'Macarrão', 3);
 
 console.log(carrinho1);
+
+carrinho1.adicionarItem(2, 'Boné', 20);
