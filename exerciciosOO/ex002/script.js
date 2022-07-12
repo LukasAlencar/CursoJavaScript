@@ -1,44 +1,33 @@
 
 class CarrinhosCompras {
-    constructor(itens, qtdTotal, vTotal){
+    constructor(itens, qtd, vTotal){
         this.itens = itens;
-        this.qtdTotal = qtdTotal;
+        this.qtd = qtd;
         this.vTotal = vTotal;
     }
+    
     adicionarItem(item){
-        let verificarExistencia = 0;
+        
         for(let itemCarrinho in this.itens){
             if(this.itens[itemCarrinho].id == item.id){
-                this.itens[itemCarrinho].qtdTotal += item.qtdTotal;
-                verificarExistencia = 1;
+                this.itens[itemCarrinho].qtd += item.qtd;
             }
-
-            if(verificarExistencia == 0){
-                this.itens.push(item);
-            }
-
-            this.qtdTotal += item.qtdTotal;
-            this.vTotal += item.valor * item.qtd;
-
         }
-    } 
-    removerItem(item){
-        
+            this.qtd += item.qtd;
+            this.vTotal += item.valor * item.qtd;
     }
 
 }
 
 let carrinho1 = new CarrinhosCompras([
     {
-        id: 1,
+        id:01,
         nome: 'Macarrão',
-        valor: 3
+        preco: 3,
+        qtd: 1,
     }
 ], 1, 3);
 
 
-carrinho1.adicionarItem(1, 'Macarrão', 3);
-
+carrinho1.adicionarItem({id:01, nome: 'Macarrão', preco: 3, qtd: 1});
 console.log(carrinho1);
-
-carrinho1.adicionarItem(2, 'Boné', 20);
