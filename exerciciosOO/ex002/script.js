@@ -27,7 +27,7 @@ class CarrinhosCompras {
     excluirIntem(item){
         for(let itemCarrinho in this.itens){
             if(this.itens[itemCarrinho].id == item.id){
-                item
+                this.itens
             }
         }
     }
